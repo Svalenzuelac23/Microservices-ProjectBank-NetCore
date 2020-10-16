@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.21" />
+    <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.2" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerBase" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MS.AFORO255.Cross.Consul\MS.AFORO255.Cross.Consul.csproj" />
+    <ProjectReference Include="..\MS.AFORO255.Cross.Jaeger\MS.AFORO255.Cross.Jaeger.csproj" />
+    <ProjectReference Include="..\MS.AFORO255.Cross.Jwt\MS.AFORO255.Cross.Jwt.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,32 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:62595",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    //"IIS Express": {
+    //  "commandName": "IISExpress",
+    //  "launchBrowser": true,
+    //  "launchUrl": "weatherforecast",
+    //  "environmentVariables": {
+    //    "ASPNETCORE_ENVIRONMENT": "Development"
+    //  }
+    //},
+    "MS.AFORO255.Security": {
+      "commandName": "Project",
+      //"launchBrowser": true,
+      "launchBrowser": false, //porque no se lanzara en ningun navegador
+      //"launchUrl": "weatherforecast",
+      "launchUrl": "", //este es para lanzar el controlador de test
+      "applicationUrl": "http://localhost:5001", //queremos que se lanze en este puerto
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

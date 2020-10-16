@@ -1,0 +1,86 @@
+{
+  "Routes": [
+    {
+      //ACA ESTAMOS COLOCANDO EL ENRUTAMIENTO, HACIA DONDE DIRIGIREMOS NUESTRA PETICION
+      "DownstreamPathTemplate": "/api/auth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      //ACA ESTAMOS COLOCANDO EL ENMASCARAMIENTO DE LA PETICION, ESTA ES LA RUTA QUE LE MOSTRAREMOS AL CLIENTE
+      "UpstreamPathTemplate": "/api/auth",
+      "UpstreamHttpMethod": [ "Post" ] //ACA PODEMOS PONER VARIOS METODOS DE UNA VEZ ["POST","GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/account-service/api/account",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/api/account",
+      "UpstreamHttpMethod": [ "Get" ],
+      //ESTA ES UNA DE LAS FORMAS DE AUTENTICACION QUE NOS DA EL PROYECTO DE JWT 
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/deposit-service/api/transaction/deposit",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/api/transaction/deposit",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/withdrawal-service/api/transaction/withdrawal",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/api/transaction/withdrawal",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/history-service/api/history/{accountId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/api/history/{accountId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}
